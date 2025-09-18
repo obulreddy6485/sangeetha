@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sangeetha Jewellery Works</title>
     <style>
-        /* General Styling */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,169 +13,214 @@
             font-family: 'Arial', sans-serif;
         }
 
+        /* Body and General Styling */
         body {
-            background-color: #f8f8f8;
+            background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
         }
 
-        /* Header Styling */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Section */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10px;
-            background-color: #333;
-            color: #fff;
+            padding: 20px 50px;
+            background-color: #1A1A2E; /* Deep Navy */
+            color: white;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         header .logo a {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
-            color: gold;
-            text-decoration: none;
+            color: #FFD700; /* Gold */
+            letter-spacing: 1px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-        }
-
-        nav ul li {
-            margin-left: 20px;
+            gap: 30px;
         }
 
         nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFD700; /* Gold */
+            color: black;
         }
 
         /* Hero Section */
         .hero {
-            background-color: #333; /* fallback color in case the image doesn't load */
-            height: 80vh;
-            color: white;
-            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background: url('banner.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
             position: relative;
+            background-color: #1A1A2E; /* Deep Navy */
         }
 
-        .hero .hero-banner {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            max-height: 80vh;
+        /* Remove the content inside the hero section */
+        .hero-content {
+            display: none;
         }
 
-        /* Featured Products Section */
-        .featured-products {
-            padding: 40px 0;
+        /* Services Section */
+        .services {
+            padding: 80px 40px;
+            background-color: #1A1A2E; /* Deep Navy */
             text-align: center;
-            background-color: #fff;
+            color: white;
         }
 
-        .featured-products h2 {
-            font-size: 32px;
+        .services h2 {
+            font-size: 40px;
             margin-bottom: 40px;
-        }
-
-        .products {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .product-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 200px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .product-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .product-item p {
-            margin-top: 10px;
-        }
-
-        .price {
-            color: #e74c3c;
             font-weight: bold;
         }
 
-        /* About Us Section */
-        .about-us {
-            padding: 40px;
-            background-color: #f9f9f9;
-            text-align: center;
+        .services .service-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .about-us h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .about-us p {
-            font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Contact Us Section */
-        .contact-us {
-            padding: 40px;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .contact-us h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .contact-us form {
+        .services .service-item {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            max-width: 400px;
-            margin: 0 auto;
+            align-items: center;
+            width: 250px;
+            margin: 20px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .contact-us input, .contact-us textarea {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .services .service-item:hover {
+            transform: scale(1.05);
         }
 
-        .contact-us button {
-            padding: 10px 20px;
-            background-color: gold;
+        /* Change images to square */
+        .service-item img {
+            width: 120px; /* Square size */
+            height: 120px; /* Square size */
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
             color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
-        .contact-us button:hover {
-            background-color: #e74c3c;
+        .service-item p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Featured Work Section */
+        .featured-work {
+            padding: 80px 40px;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+
+        .featured-work h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .featured-work .work-item {
+            display: inline-block;
+            width: 45%;
+            margin: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .work-item:hover {
+            transform: scale(1.05);
+        }
+
+        .work-item h3 {
+            font-size: 22px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 40px;
+            background-color: #1A1A2E; /* Deep Navy */
+            text-align: center;
+            color: white;
+        }
+
+        .testimonials h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .testimonials .testimonial {
+            display: inline-block;
+            width: 45%;
+            margin: 20px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .customer-name {
+            font-weight: bold;
+            color: #333;
         }
 
         /* Footer Section */
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: #1A1A2E; /* Deep Navy */
+            color: white;
             text-align: center;
             padding: 20px;
         }
@@ -184,55 +229,47 @@
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
+            font-size: 18px;
         }
 
         footer .social-media a:hover {
             color: gold;
         }
 
-        /* Media Queries for Mobile */
+        /* Mobile Styles */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                padding-top: 10px;
-            }
-
-            nav ul li {
+            .services .service-item {
+                width: 100%;
                 margin: 10px 0;
             }
 
-            .hero .hero-banner {
-                max-height: 60vh;
-            }
-
-            .featured-products h2 {
-                font-size: 24px;
-            }
-
-            .products {
-                display: block;
-            }
-
-            .product-item {
+            .featured-work .work-item {
                 width: 100%;
             }
 
-            .about-us p {
-                font-size: 16px;
+            .hero h1 {
+                font-size: 40px;
             }
 
-            .contact-us form {
-                width: 100%;
+            .hero p {
+                font-size: 20px;
             }
 
-            .contact-us button {
-                width: 100%;
+            .cta-btn {
+                font-size: 18px;
+                padding: 12px 25px;
+            }
+
+            .services {
+                padding: 40px 20px;
+            }
+
+            .featured-work {
+                padding: 40px 20px;
+            }
+
+            .testimonials {
+                padding: 40px 20px;
             }
         }
     </style>
@@ -247,60 +284,65 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#featured">Featured Work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Content Removed) -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="banner.png" alt="Sangeetha Jewellery Works Banner" class="hero-banner">
-        </div>
+        <!-- Removed content as per your request -->
     </section>
 
-    <!-- Featured Products Section -->
-    <section id="shop" class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="products">
-            <div class="product-item">
-                <img src="product1.jpg" alt="Product 1">
-                <p>Gold Necklace</p>
-                <p class="price">$1,200</p>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Expert Services</h2>
+        <div class="service-container">
+            <div class="service-item">
+                <img src="Jewelry Repair.jpg" alt="Jewelry Repair">
+                <h3>Jewelry Repair</h3>
+                <p>Restoring the beauty of your jewelry with expert repairs and meticulous care.</p>
             </div>
-            <div class="product-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Diamond Ring</p>
-                <p class="price">$3,500</p>
+            <div class="service-item">
+                <img src="Jewelry Polishing.jpg" alt="Jewelry Polishing">
+                <h3>Jewelry Polishing</h3>
+                <p>Bring back the shine with our jewelry polishing services.</p>
             </div>
-            <div class="product-item">
-                <img src="product3.jpg" alt="Product 3">
-                <p>Emerald Earrings</p>
-                <p class="price">$2,000</p>
+            <div class="service-item">
+                <img src="Stone Setting.jpg" alt="Stone Setting">
+                <h3>Stone Setting</h3>
+                <p>Secure and beautifully set stones to enhance your jewelry's beauty.</p>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-us">
-        <h2>About Us</h2>
-        <p>At Sangeetha Jewellery Works, we create timeless pieces that tell a story. With a passion for quality craftsmanship, our jewellery is designed to add elegance to every occasion.</p>
+    <!-- Featured Work Section -->
+    <section id="featured" class="featured-work">
+        <h2>Featured Jewelry Repairs & Polishing</h2>
+        <div class="work-item">
+            <img src="Gold Necklace Repair.jpg" alt="Gold Necklace Repair">
+            <h3>Gold Necklace Repair</h3>
+        </div>
+        <div class="work-item">
+            <img src="Ring Resizing.jpg" alt="Ring Resizing">
+            <h3>Ring Resizing</h3>
+        </div>
     </section>
 
-    <!-- Contact Us Section -->
-    <section id="contact" class="contact-us">
-        <h2>Contact Us</h2>
-        <form action="#" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Customer Testimonials</h2>
+        <div class="testimonial">
+            <p>"The quality of the repairs is exceptional! My necklace looks brand new again!"</p>
+            <p class="customer-name">- Ramesh Kumar</p>
+        </div>
+        <div class="testimonial">
+            <p>"I trust them with all my jewelry repairs. Excellent service and friendly staff!"</p>
+            <p class="customer-name">- Priya Gupta</p>
+        </div>
     </section>
 
     <!-- Footer Section -->
