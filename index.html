@@ -12,19 +12,16 @@
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-
         /* Body and General Styling */
         body {
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
         }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         /* Header Section */
         header {
             display: flex;
@@ -38,20 +35,17 @@
             width: 100%;
             z-index: 1000;
         }
-
         header .logo a {
             font-size: 32px;
             font-weight: bold;
             color: #FFD700; /* Gold */
             letter-spacing: 1px;
         }
-
         nav ul {
             list-style: none;
             display: flex;
             gap: 30px;
         }
-
         nav ul li a {
             color: white;
             font-size: 18px;
@@ -60,45 +54,44 @@
             border-radius: 30px;
             transition: all 0.3s ease;
         }
-
         nav ul li a:hover {
             background-color: #FFD700; /* Gold */
             color: black;
         }
-
-        /* Hero Section */
+        /* Hamburger Icon Styling */
+        .hamburger {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+        }
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        /* --- HERO SECTION STYLES --- */
         .hero {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: url('banner.png') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
+            height: 90vh;
+            background: url('banner.png') no-repeat center center;
+            background-size: cover; /* This is for desktop */
             position: relative;
-            background-color: #1A1A2E; /* Deep Navy */
+            background-color: #1A1A2E; /* Fallback color */
         }
-
-        /* Remove the content inside the hero section */
-        .hero-content {
-            display: none;
-        }
-
         /* Services Section */
         .services {
             padding: 80px 40px;
-            background-color: #1A1A2E; /* Deep Navy */
+            background-color: #1A1A2E;
             text-align: center;
             color: white;
         }
-
         .services h2 {
             font-size: 40px;
             margin-bottom: 40px;
             font-weight: bold;
         }
-
         .services .service-container {
             display: flex;
             justify-content: center;
@@ -106,7 +99,6 @@
             gap: 30px;
             flex-wrap: wrap;
         }
-
         .services .service-item {
             display: flex;
             flex-direction: column;
@@ -120,42 +112,34 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-
         .services .service-item:hover {
             transform: scale(1.05);
         }
-
-        /* Change images to square */
         .service-item img {
-            width: 120px; /* Square size */
-            height: 120px; /* Square size */
+            width: 120px;
+            height: 120px;
             margin-bottom: 20px;
         }
-
         .service-item h3 {
             font-size: 26px;
             margin-bottom: 20px;
             color: #333;
         }
-
         .service-item p {
             color: #666;
             font-size: 16px;
         }
-
         /* Featured Work Section */
         .featured-work {
             padding: 80px 40px;
             background-color: #f7f7f7;
             text-align: center;
         }
-
         .featured-work h2 {
             font-size: 40px;
             margin-bottom: 40px;
             color: #333;
         }
-
         .featured-work .work-item {
             display: inline-block;
             width: 45%;
@@ -166,36 +150,30 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-
         .work-item img {
             width: 100%;
             height: auto;
             border-radius: 15px;
         }
-
         .work-item:hover {
             transform: scale(1.05);
         }
-
         .work-item h3 {
             font-size: 22px;
             margin-top: 20px;
             color: #333;
         }
-
         /* Testimonials Section */
         .testimonials {
             padding: 60px 40px;
-            background-color: #1A1A2E; /* Deep Navy */
+            background-color: #1A1A2E;
             text-align: center;
             color: white;
         }
-
         .testimonials h2 {
             font-size: 40px;
             margin-bottom: 40px;
         }
-
         .testimonials .testimonial {
             display: inline-block;
             width: 45%;
@@ -205,69 +183,84 @@
             border-radius: 15px;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
-
         .testimonial p {
             font-size: 16px;
             color: #666;
             margin-bottom: 15px;
         }
-
         .testimonial .customer-name {
             font-weight: bold;
             color: #333;
         }
-
         /* Footer Section */
         footer {
-            background-color: #1A1A2E; /* Deep Navy */
+            background-color: #1A1A2E;
             color: white;
             text-align: center;
             padding: 20px;
         }
-
         footer .social-media a {
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
             font-size: 18px;
         }
-
         footer .social-media a:hover {
             color: gold;
         }
-
-        /* Mobile Styles */
+        /* --- UPDATED Mobile Styles --- */
         @media (max-width: 768px) {
-            .services .service-item {
+            header {
+                padding: 20px 30px;
+            }
+            header .logo a {
+                font-size: 24px;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            nav ul {
+                position: fixed;
+                left: -100%;
+                top: 85px;
+                flex-direction: column;
+                background-color: #1A1A2E;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                gap: 0;
+            }
+            nav ul li {
+                padding: 15px 0;
+            }
+            nav ul.active {
+                left: 0;
+            }
+            
+            /* FIX: Make the banner scale down without cropping */
+            .hero {
+                height: 50vh; /* Adjust height for mobile */
+                background-size: contain; /* This is the key change */
+            }
+
+            .services .service-item,
+            .featured-work .work-item,
+            .testimonials .testimonial {
                 width: 100%;
                 margin: 10px 0;
             }
-
-            .featured-work .work-item {
-                width: 100%;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 20px;
-            }
-
-            .cta-btn {
-                font-size: 18px;
-                padding: 12px 25px;
-            }
-
-            .services {
-                padding: 40px 20px;
-            }
-
-            .featured-work {
-                padding: 40px 20px;
-            }
-
+            
+            .services,
+            .featured-work,
             .testimonials {
                 padding: 40px 20px;
             }
@@ -276,7 +269,6 @@
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <div class="logo">
             <a href="#">Sangeetha Jewellery Works</a>
@@ -290,14 +282,16 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </header>
 
-    <!-- Hero Section (Content Removed) -->
     <section id="home" class="hero">
-        <!-- Removed content as per your request -->
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services">
         <h2>Our Expert Services</h2>
         <div class="service-container">
@@ -319,7 +313,6 @@
         </div>
     </section>
 
-    <!-- Featured Work Section -->
     <section id="featured" class="featured-work">
         <h2>Featured Jewelry Repairs & Polishing</h2>
         <div class="work-item">
@@ -332,7 +325,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <h2>Customer Testimonials</h2>
         <div class="testimonial">
@@ -345,7 +337,6 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Sangeetha Jewellery Works. All rights reserved.</p>
         <div class="social-media">
@@ -354,6 +345,15 @@
             <a href="#">Twitter</a>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector("nav ul");
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    </script>
 
 </body>
 </html>
